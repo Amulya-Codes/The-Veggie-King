@@ -99,20 +99,52 @@ a:link {
 
 .hero__images__container {
     z-index: 2;
+    width: 30%;
+    height: 50%;
+    background-image: url(./assets/images/hero-section-slide-food-1.png);
+    background-size: 100% 100%;
+    animation: slider 20s linear infinite;
     position: absolute;
-    left: 45%;
+    left: 55%;
     top: 30%;
-    transition: opacity 1s ease-in-out;
-}
-.hero__images__container img {
-    width: 65%;
 }
 
-.hero__images__container img.active {
-    opacity: 1;
+
+@keyframes slider {
+    0% {
+        background-image: url(./assets/images/hero-section-slide-food-1.png);
+    }
+    25% {
+        background-image: url(./assets/images/hero-section-slide-food-2.png);
+    }
+    50% {
+        background-image: url(./assets/images/hero-section-slide-food-3.png) ;
+    }
+    75% {
+        background-image: url(./assets/images/hero-section-slide-food-4.png) ;
+    }
+    100% {
+        background-image: url(./assets/images/hero-section-slide-food-1.png) ;
+    }
 }
 
 /* End of hero section */
+
+/* hamburger menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 1.8rem;
+    height: 0.25rem;
+    margin: 0.25rem auto;
+    background-color: rgb(22, 20, 20);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
 
 /* About -us section */
 
@@ -196,6 +228,7 @@ a:link {
 }
 .food__items {
     box-shadow: 8px 3px 12px grey;
+    transition: transition 0.03s ease;
     /* padding: 2rem; */
 }
 .food__items img{
@@ -238,6 +271,7 @@ a:link {
 .gallery img {
     max-width: 33rem;
     height: 20rem;
+    opacity: 0.7;
 }
 
 /* Contact section */
@@ -304,4 +338,263 @@ footer {
 .copyright {
     color: rgb(154, 153, 153);
     margin: 1rem 0 0 10rem;
+}
+
+/* hover */
+.nav__list a:hover,
+footer a:hover {
+    color: gray;
+}
+
+.btn-menu:hover,
+.socials_icons img:hover {
+    opacity: 0.8;
+}
+
+.gallery img:hover{
+    opacity: 1;
+}
+
+.menu > .food__items:hover {
+    transform: scale(1.1);
+}
+
+/* media Queires */
+
+@media (max-width: 700px){
+    /* Hamburger */
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+       transform: translateY(0.5rem) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-0.5rem) rotate(-45deg);
+    }
+    .nav__list {
+        position: fixed;
+        left: -100%;
+        top: 3.5rem;
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        text-align: center;
+        transition: 0.3s;
+    }
+/* Navbar */
+    .nav__list li {
+        margin: 1.5rem 0;
+    }
+
+    .nav__list.active {
+        left: 0;
+        z-index: 3;
+
+    }
+
+    /* hero section */
+    .hero__section {
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        overflow: hidden;
+
+    }
+    .container {
+        position: relative;
+    }
+    .left__container{
+        width: 90%;
+    }
+    .text__container {
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .header {
+        font-size: 3rem;
+    }
+    .right__container {
+        width: 10%;
+        height: 100vh;
+    }
+    .text__container p {
+        font-size: 1.2rem;
+    }
+
+    .hero__images__container {
+        position: absolute;
+        left: 80%;
+       overflow: hidden;
+       top: 20%;
+       width: 20rem;
+       height: 20rem;
+    }
+
+    
+    .hero-section-chilli {
+        position: absolute;
+        top: 22rem;
+
+    }
+
+
+    /* about -us */
+
+.circle {
+    max-width: 30%;
+    max-height: 30%;
+    border-radius: 100%;
+}
+
+.about__us_img {
+    width: 30%;
+    height: 30%;
+    margin-top: 25px;
+    margin-left: 3px;
+}
+.about_us_details {
+    margin-left: 15px;
+    
+}
+/* menu */
+    .menu {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* gallery */
+    
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+    .gallery img {
+        width: 100%;
+    }
+    
+    .contact {
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-info {
+        width: 95%;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .footer_section {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .socials_icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .copyright {
+        text-align: start;
+    }
+    
+
+    
+}
+
+/* for tablet */
+
+@media (min-width: 701px) and (max-width: 1024px){
+
+   .hero__section {
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+   } 
+   
+
+.left__container, .right__container {
+    width: 100%;
+}
+
+.text__container {
+    position: absolute;
+    top: 20%;
+}
+
+.header {
+    font-size: 3rem;
+}
+
+.hero__images__container {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 10%;
+}
+
+.right__container {
+    width: 40%;
+    height: 95vh;
+}
+
+
+/* about -us */
+
+.circle {
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+}
+
+.about__us_img {
+    width: 40%;
+    height: 40%;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+.about_us_details {
+    margin-left: 15px;
+}
+
+/* menu */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+/* gallery */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+.gallery img {
+    width: 100%;
+}
+
+.contact-info {
+    width: 95%;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer_section {
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
 }
