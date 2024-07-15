@@ -2,6 +2,8 @@
 
 Welcome to The Veggie King website repository! This project showcases a responsive web design for a food-related website using HTML, CSS, and JavaScript.
 
+-[Live server](#https://amulya-codes.github.io/The-Veggie-King/)
+
 ## Table of Contents
 
 - [Features](#features)
